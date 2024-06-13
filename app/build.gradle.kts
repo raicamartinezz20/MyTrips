@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -50,6 +51,19 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Import da biblioteca ROOM
+    implementation("androidx.room:room-runtime:2.6.1")
+
+    // Como se fosse um post-it, para avisar que o kotlin tem que fazer tal tarefa
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+
+    kapt("androidx.room:room-compiler:2.6.1")
+
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
