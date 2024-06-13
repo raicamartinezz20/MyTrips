@@ -47,7 +47,6 @@ import androidx.navigation.NavHostController
 import br.senai.sp.jandira.mytrips.R
 import br.senai.sp.jandira.mytrips.model.Usuario
 import br.senai.sp.jandira.mytrips.repository.ContaRepository
-//import br.senai.sp.jandira.mytrips.TelaCadastro
 import br.senai.sp.jandira.mytrips.ui.theme.MytripsTheme
 
 
@@ -70,11 +69,9 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
     }
 
     var isOverState = remember {
-        // Tipo booleano
         mutableStateOf(false)
     }
 
-    // Pega o contexto e passa pro repositorio
     val cr = ContaRepository(LocalContext.current)
 
 
@@ -94,7 +91,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                 modifier = Modifier
                     .background(
                         color = Color(0xFFCF06F0),
-                        // Borda da box
                         shape = RoundedCornerShape(bottomStart = 10.dp)
                     )
                     .height(40.dp)
@@ -114,7 +110,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
             .padding(10.dp)
     ) {
         Text(
-            // Texto
             text = "Sign Up",
             color = Color(0xFFCF06F0),
             fontSize = 32.sp,
@@ -151,13 +146,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
 
     }
 
-    // Espaco para inserir dados
     Column (
         modifier = Modifier
             .padding(16.dp)
     ) {
 
-        // Para digitar o nome
         OutlinedTextField(
             value = nomeState.value,
             onValueChange = {
@@ -173,25 +166,17 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                 .colors(
                     focusedBorderColor = Color(0xFFA600FF),
                     unfocusedBorderColor = Color(0xFFA600FF),
-                    // Quando tiver o texto em foco fica dessa cor
                     focusedTextColor = Color.Black,
-                    // Quando nao tiver em foco
                     unfocusedTextColor = Color.Black
                 ),
             shape = RoundedCornerShape(16.dp),
             leadingIcon = {
                 Icon(imageVector = Icons.Filled.Email, contentDescription = "", tint = Color(0xFFCF06F0))
             }
-            // Funcao Label - Neste caso ela fica acima da caixa para digitar
-//            placeholder = {
-//                Text(text = "Seu peso em kg")
-//            }
 
         )
-        // Espaco entre os Outlined
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Para digitar o telefone
         OutlinedTextField(
             value = foneState.value ,
             onValueChange ={
@@ -200,13 +185,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
             modifier =  Modifier
                 .fillMaxWidth(),
 
-            //Label sobe pra cima da linha quando usado no outlinedTextField
             label = {
                 Text(text = "Phone")
             },
             colors = OutlinedTextFieldDefaults
                 .colors(
-                    // Quando a borda tiver desfocada e em foco
                     focusedBorderColor = Color(0xFFA600FF),
                     unfocusedBorderColor = Color(0xFFA600FF),
 
@@ -221,7 +204,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Para digitar o e-mail
         OutlinedTextField(
             value = emailState.value,
             onValueChange ={
@@ -230,13 +212,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
             modifier =  Modifier
                 .fillMaxWidth(),
 
-            //Label sobe pra cima da linha quando usado no outlinedTextField
             label = {
                 Text(text = "E-mail")
             },
             colors = OutlinedTextFieldDefaults
                 .colors(
-                    // Quando a borda tiver desfocada e em foco
                     focusedBorderColor = Color(0xFFA600FF),
                     unfocusedBorderColor = Color(0xFFA600FF),
 
@@ -251,7 +231,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Para digitar a senha
         OutlinedTextField(
             value = senhaState.value,
             onValueChange ={
@@ -260,13 +239,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
             modifier =  Modifier
                 .fillMaxWidth(),
 
-            //Label sobe pra cima da linha quando usado no outlinedTextField
             label = {
                 Text(text = "Password")
             },
             colors = OutlinedTextFieldDefaults
                 .colors(
-                    // Quando a borda tiver desfocada e em foco
                     focusedBorderColor = Color(0xFFA600FF),
                     unfocusedBorderColor = Color(0xFFA600FF),
 
@@ -288,8 +265,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
 
     Column {
 
-
-// CheckBox - caixinha para marcar habilitado ou desabilitado
         Checkbox(
             checked = isOverState.value,
             onCheckedChange = {
@@ -311,9 +286,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                 .offset(x = 50.dp, y = 515.dp)
         )
 
-        // Botao para criar conta
         Button(onClick = {
-            // Quando clicar, criar objeto conta
                       val conta = Usuario(
                           nome = nomeState.value,
                           telefone = foneState.value,
@@ -321,7 +294,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                           senha = senhaState.value,
                           isOver = isOverState.value
                       )
-            // Salvar a conta
             cr.salvar(conta)
             controleDeNavegacao.navigate("login")
                          },
@@ -330,12 +302,10 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                 .offset(x = 35.dp, y = 540.dp)
                 .height(48.dp),
 
-            // Definir cor do botao e curvatura do botao
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFCF06F0)),
             shape = RoundedCornerShape(16.dp)
         ) {
 
-            // Texto dentro do botao
             Text(
                 text = "CREATE ACCOUNT",
                 fontSize = 16.sp,
