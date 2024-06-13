@@ -6,7 +6,6 @@ import br.senai.sp.jandira.mytrips.model.Usuario
 
 class ContaRepository (context: Context){
 
-    // Acessar o banco de dados
     private val db = ContaDb.getBancoDeDados(context).contaDao()
 
 
