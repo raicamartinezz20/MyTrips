@@ -9,11 +9,9 @@ class CategoriaRepository {
 
     @Composable
     fun mostrarTodasAsCategorias(): List<Categoria> {
-// Dados das categorias
         val montanha= Categoria()
         montanha.id = 1
         montanha.titulo = "Montain"
-        // Para deixar o card da categoria selecionado ou nao, ficar com uma opacidade menor
         montanha.selecionado = true
         montanha.imagem = painterResource(id = R.drawable.montanha)
         
