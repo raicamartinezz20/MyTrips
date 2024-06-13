@@ -42,7 +42,6 @@ import br.senai.sp.jandira.mytrips.ui.theme.MytripsTheme
 @Composable
 fun TelaLogin(controleDeNavegacao: NavHostController) {
 
-    // Criando as variaveis de estado
 
     var emailState = remember {
         mutableStateOf("")
@@ -62,7 +61,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
 
     var contaRepository = ContaRepository(LocalContext.current)
 
-// Tela de Login
     MytripsTheme {
         Column (
             modifier = Modifier
@@ -78,7 +76,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                     modifier = Modifier
                         .background(
                             color = Color(0xFFCF06F0),
-                            // Borda da box
                             shape = RoundedCornerShape(bottomStart = 10.dp)
                         )
                         .height(40.dp)
@@ -98,7 +95,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                 .padding(10.dp)
         ) {
             Text(
-                // Texto "LOGIN
                 text = "Login",
                 color = Color(0xFFCF06F0),
                 fontSize = 48.sp,
@@ -120,13 +116,11 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
 
         }
 
-        // Espaco para inserir dados
         Column (
             modifier = Modifier
                 .padding(16.dp)
         ) {
 
-            // Para digitar o email
             OutlinedTextField(
                 value = emailState.value,
                 onValueChange = {
@@ -144,9 +138,7 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                     .colors(
                         focusedBorderColor = Color(0xFFA600FF),
                         unfocusedBorderColor = Color(0xFFA600FF),
-                        // Quando tiver o texto em foco fica dessa cor
                         focusedTextColor = Color.Black,
-                        // Quando nao tiver em foco
                         unfocusedTextColor = Color.Black
                     ),
                 shape = RoundedCornerShape(16.dp),
@@ -155,10 +147,8 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                 }
 
             )
-            // Espaco entre os Outlined
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Para digitar a senha
             OutlinedTextField(
                 value = senhaState.value,
                 onValueChange ={
@@ -168,13 +158,11 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                 modifier =  Modifier
                     .fillMaxWidth(),
 
-                //Label sobe pra cima da linha quando usado no outlinedTextField
                 label = {
                     Text(text = "Password")
                 },
                 colors = OutlinedTextFieldDefaults
                     .colors(
-                        // Quando a borda tiver desfocada e em foco
                         focusedBorderColor = Color(0xFFA600FF),
                         unfocusedBorderColor = Color(0xFFA600FF),
 
@@ -188,7 +176,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
 
             )
 
-            // Mensagem para aparecer de erro
             Text(text = mensagemErroState.value,
                 color = Color.Red)
 
@@ -212,19 +199,16 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                     .offset(x = 225.dp, y = 490.dp)
                     .height(50.dp),
 
-                // Definir cor do botao e curvatura do botao
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFCF06F0)),
                 shape = RoundedCornerShape(16.dp)
             ) {
 
-                // Texto dentro do botao
                 Text(
                     text = "SIGN IN",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Black
 
                 )
-                // Icone de Seta
                 Icon(imageVector = Icons.Filled.ArrowForward, contentDescription = "", tint = Color.White)
 
             }
@@ -266,7 +250,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                     modifier = Modifier
                         .background(
                             color = Color(0xFFCF06F0),
-                            // Borda da box
                             shape = RoundedCornerShape(topEnd = 10.dp)
                         )
                         .height(40.dp)
@@ -284,12 +267,10 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
 }
 
 
-// Criar uma funcao Preview - digita prev e o nome da funcao
 @Preview
 @Composable
 fun TelaLoginPreview () {
 
-    // Pre-visualizacao
     MytripsTheme {
 //        TelaLogin(controleDeNavegacao = )
     }
