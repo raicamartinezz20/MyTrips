@@ -1,4 +1,4 @@
-package br.senai.sp.jandira.mytrips
+'package br.senai.sp.jandira.mytrips
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,22 +23,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MytripsTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // Vai lembrar da navegacao que esta fazendo para depois voltar
                     val controleDeNavegacao = rememberNavController()
 
-                    // Chamar uma funcao NavHost
                     NavHost(
                         navController = controleDeNavegacao ,
-                        // Quando eu abrir a aplicacao qual a tela que vai aparecer
-                        startDestination = "login" // essa palavra login é criada, mas esta referente a tela que queremos
+                        startDestination = "login"
                     ){
-                        // Todas as telas tem que ficar aqui
-                        // Passando um argumento -- clica no login, refactor
                         composable(route = "login"){ TelaLogin(controleDeNavegacao) }
                         composable(route = "home"){  TelaHome(controleDeNavegacao) }
                         composable(route = "cadastro"){ TelaCadastro(controleDeNavegacao) }
