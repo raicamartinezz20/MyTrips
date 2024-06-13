@@ -66,8 +66,6 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
     }
 
     
-
-    // Column, Surface a imagem e uma column que tenha td que vai estar por cima
     Column {
         Surface (
             modifier = Modifier
@@ -143,7 +141,6 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
         LazyRow {
             items(categoria){
 
-                // Card das categorias
                 Card (
 
                     modifier = Modifier
@@ -152,9 +149,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                         .width(140.dp)
                         .offset(x = 10.dp)
                         .padding(horizontal = 6.dp),
-                    // Se o card estiver selecionado (true a cor dele vai ser mais escura)
                     colors = if (it.selecionado==true) CardDefaults.cardColors(containerColor = Color(0xFFCF06F0))
-                    // Se nao estiver selecionado a opacidade será menor
                     else CardDefaults.cardColors(containerColor = Color(0xFFEAABF4))
 
                 ) {
@@ -190,7 +185,6 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                 .padding(10.dp)
                 .height(70.dp)
         ) {
-            // Campo de pesquisa
             OutlinedTextField(
                 value = destinoState.value,
                 onValueChange = {
@@ -231,11 +225,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
         Spacer(modifier = Modifier.height(4.dp))
 
 
-        // Viagens
         LazyColumn{
-            // Quantidade de viagens que eu tiver vai ser a quantidade de items, a cada volta ele pega uma viagem que esta na lista
-            // variavel que criamos
-
             items(viagens){
                 Card(
                     elevation = CardDefaults.cardElevation(6.dp),
@@ -244,15 +234,12 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                         .fillMaxWidth()
                         .padding(10.dp)
                 ) {
-                    // Criamos duas column para conseguir modificar melhor o padding
                     Column(
                         modifier = Modifier
-                            // Vai ter a largura do pai dela (Card)
                             .fillMaxSize()
                             .padding(4.dp)
                     ){
                             Image(
-                                // Se a imagem for nula aparecer a imagem not image, e se tiver aparecer a imagem !!
                                 painter = if (it.imagem == null) painterResource(id = R.drawable.notimage)else it.imagem!!,
                                 contentDescription = "",
                                 contentScale = ContentScale.Crop,
@@ -290,8 +277,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                             )
                         }
 
-                            // Outra forma de extrair a data chegada, e o  mes com apenas 3 letras
-//                           Text(text = "${it.DataChegada.dayOfMonth} ${it.DataChegada.month.toString().substring(0..2)}")
+                           Text(text = "${it.DataChegada.dayOfMonth} ${it.DataChegada.month.toString().substring(0..2)}")
 
 
                     }
