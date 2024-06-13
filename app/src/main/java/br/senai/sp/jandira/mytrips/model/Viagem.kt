@@ -4,8 +4,6 @@ import androidx.compose.ui.graphics.painter.Painter
 import java.time.LocalDate
 
 data class Viagem(
-    // Atributos
-    // Atribuindo valores padroes, se quiser que seja obrigatorio nao coloca valor inicial so a virgula
     var id: Int = 0,
     var destino: String ="",
     var descricao: String = "",
